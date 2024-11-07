@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "e00e1849-713d-4de0-9904-be81c0e5810d",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20261110"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Edit Movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"mutation EditMovie($movieToEdit: MovieToEdit!) { editMovie(movieToEdit: $movieToEdit) { id title genre rating year numberAvailable } }\",\n    \"variables\": {\n        \"movieToEdit\": {\n            \"id\": \"101\",\n            \"title\": \"Battle Beyond the Stars\",\n            \"genre\": \"Science Fiction\",\n            \"rating\": \"PG\",\n            \"year\": 1980,\n            \"numberAvailable\": 2\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movies",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"{ movies { id title genre rating year numberAvailable } }\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movie By Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"{ movie(id: \\\"101\\\") { id title genre rating year numberAvailable } }\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"mutation AddMovie($movieToAdd: MovieToAdd!) { addMovie(movieToAdd: $movieToAdd) { id title genre rating year numberAvailable } }\",\n    \"variables\": {\n        \"movieToAdd\": {\n            \"title\": \"Battle Beyond the Stars\",\n            \"genre\": \"Science Fiction\",\n            \"rating\": \"PG\",\n            \"year\": 1980,\n            \"numberAvailable\": 1\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"mutation DeleteMovie($id: ID!) { deleteMovie(id: $id) { id title genre rating year numberAvailable } }\",\n    \"variables\": {\n        \"id\": \"101\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"{ users { id userName firstName lastName email phone createdAt } }\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"{ user(id: \\\"11\\\") { id userName firstName lastName email phone createdAt } }\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"mutation CreateUser($userToAdd: UserToAdd!) { createUser(userToAdd: $userToAdd) { id firstName lastName email phone createdAt } }\",\n    \"variables\": {\n        \"userToAdd\": {\n            \"userName\": \"Your Huckleberry\",\n            \"firstName\": \"Doc\",\n            \"lastName\": \"Holliday\",\n            \"email\": \"doc@ok.com\",\n            \"phone\": \"111-333-5555\",\n            \"createdAt\": \"1965-01-01T00:00:00.000Z\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rentals",
+			"item": [
+				{
+					"name": "Get Rentals",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"{ rentals { id userId movieId rentalDate rentalDuration returnDate userName movieTitle } }\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Rental By Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"query rental($id: ID!) { rental(id: $id) { id userId movieId rentalDate rentalDuration returnDate userName movieTitle } }\",\n    \"variables\": {\n        \"id\": 3\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rent Movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"mutation createRental($rentalInput: RentalInput!) { createRental(rentalInput: $rentalInput) { id userId movieId rentalDate rentalDuration } }\",\n    \"variables\": {\n        \"rentalInput\": {\n            \"userId\": 10,\n            \"movieId\": 1,\n            \"rentalDate\": \"2024-09-24T00:00:00.000Z\",\n            \"rentalDuration\": 5\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return Rental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"mutation ReturnRental($rentalId: Int!) { returnRental(rentalId: $rentalId) { id userId movieId rentalDate rentalDuration returnDate userName movieTitle } }\",\n    \"variables\": {\n        \"rentalId\": 3\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
